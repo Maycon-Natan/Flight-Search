@@ -1,3 +1,5 @@
+import 'package:flight_search/multicity_input.dart';
+import 'package:flight_search/price_tab/price_tab.dart';
 import 'package:flutter/material.dart';
 
 class ContentCard extends StatefulWidget {
@@ -36,6 +38,7 @@ class _ContentCardState extends State<ContentCard> {
                 return Column(
                   children: [
                     _buildTabBar(showFirstOption: true),
+                    _buildContentContainer(viewportConstraints)
                   ],
                 );
               })),
@@ -64,21 +67,35 @@ class _ContentCardState extends State<ContentCard> {
           minHeight: viewportConstraints.maxHeight - 48,
         ),
         child: IntrinsicHeight(
-          child: showInput
-              ? _buildMuticityTab()
-              : Container(
-                  color: Colors.red,
-                  height: 30,
-                  width: 30,
-                ),
-        ),
+            child: showInput
+                ? _buildMuticityTab()
+                : PriceTab(
+                    height: viewportConstraints.maxHeight - 48,
+                    onPlaneFlightStart: () =>
+                        setState(() => showInputTabOptions = false))),
       ),
     ));
   }
 
   Widget _buildMuticityTab() {
     return Column(
-      children: [],
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        MulticityInput(),
+        Padding(
+          padding: EdgeInsets.only(bottom: 16, top: 8),
+          child: FloatingActionButton(
+            backgroundColor: Colors.red,
+            shape: CircleBorder(),
+            onPressed: () => setState(() => showInput = false),
+            child: Icon(
+              Icons.timeline,
+              size: 36,
+              color: Colors.white,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

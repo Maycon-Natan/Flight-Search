@@ -56,6 +56,69 @@ class MulticityInputState extends State<MulticityInput>
                 ),
               ),
             ),
+            Row(
+              children: [
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 8.0),
+                    child: TypeableTextFormField(
+                      animation: _buildInputAnimation(begin: 0.3, end: 0.5),
+                      finalText: "South Darian",
+                      decoration: InputDecoration(
+                        icon: Icon(Icons.flight_land, color: Colors.red),
+                        labelText: "To",
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  width: 64.0,
+                  alignment: Alignment.center,
+                  child: IconButton(
+                      onPressed: () => textInputAnimationController?.forward(),
+                      icon: Icon(Icons.add_circle_outline, color: Colors.grey)),
+                ),
+              ],
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0.0, 0.0, 64.0, 8.0),
+              child: TypeableTextFormField(
+                animation: _buildInputAnimation(begin: 0.45, end: 0.65),
+                finalText: "4",
+                decoration: InputDecoration(
+                  icon: Icon(Icons.person, color: Colors.red),
+                  labelText: "Passengers",
+                ),
+              ),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(right: 16.0),
+                  child: Icon(Icons.date_range, color: Colors.red),
+                ),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 16.0),
+                    child: TypeableTextFormField(
+                      animation: _buildInputAnimation(begin: 0.6, end: 0.8),
+                      finalText: "29 June 2017",
+                      decoration: InputDecoration(labelText: "Departure"),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 16.0),
+                    child: TypeableTextFormField(
+                      animation: _buildInputAnimation(begin: 0.75, end: 0.95),
+                      finalText: "29 July 2017",
+                      decoration: InputDecoration(labelText: "Arrival"),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),
