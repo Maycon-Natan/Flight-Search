@@ -98,7 +98,7 @@ class _TicketsPageState extends State<TicketsPage>
         shape: CircleBorder(),
         onPressed: () {
           Navigator.of(context)
-              .push(FadeRoute(builder: (context) => HomePage()));
+              .pushReplacement(FadeRoute(builder: (context) => HomePage()));
         },
         child: Icon(Icons.fingerprint, color: Colors.white, size: 36.0),
       ),

@@ -17,6 +17,7 @@ class AirAsiaBar extends StatelessWidget {
                   colors: [Colors.red, const Color(0xFFE64C85)])),
         ),
         AppBar(
+          automaticallyImplyLeading: false,
           backgroundColor: Colors.transparent,
           elevation: 0,
           centerTitle: true,
